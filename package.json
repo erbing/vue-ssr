@@ -1,0 +1,14 @@
+{
+  "name": "ssr",
+  "version": "1.0.0",
+  "description": "for project",
+  "main": "app.js",
+  "author": "zigzag",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "fs": "^0.0.1-security",
+    "vue": "^2.5.13",
+    "vue-server-renderer": "^2.5.13"
+  }
+}
