@@ -9,6 +9,7 @@
     "express": "^4.16.2",
     "fs": "^0.0.1-security",
     "vue": "^2.5.13",
-    "vue-server-renderer": "^2.5.13"
+    "vue-server-renderer": "^2.5.13",
+    "vuejs": "^2.0.19"
   }
 }
