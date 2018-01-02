@@ -1,1 +1,1 @@
-### use yard
+### use yarn
