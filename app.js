@@ -1,30 +1,15 @@
-const Vue = require('vue')
-const server = require('express')()
-const renderer = require('vue-server-renderer').createRenderer({
-    template: require('fs').readFileSync('./index.template.html', 'utf-8')
-})
+import Vue from 'vue'
+import App from './App.vue'
+import { createRouter } from './router'
 
-server.get('*', (req, res) => {
+export function createApp () {
+    // 创建 router 实例
+    const router = createRouter()
     const app = new Vue({
-        data: {
-            url: req.url,
-            title: 'this is cur title'
-        },
-        template: `<div>访问的 URL 是： {{ url }}</div>`
+        // 注入 router 到根 Vue 实例
+        router,
+        render: h => h(App)
     })
-
-    const content = {
-        title: 'this is cur titles'
-    }
-
-    renderer.renderToString(app, content,(err, html) => {
-        if (err) {
-            res.status(500).end('Internal Server Errorss', err)
-            return
-        }
-        res.end(`${html}`)
-    })
-})
-
-server.listen(8081)
-console.log('listening at 8081 port')
+    // 返回 app 和 router
+    return { app, router }
+}
